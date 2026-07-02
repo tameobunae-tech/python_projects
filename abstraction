@@ -1,0 +1,81 @@
+from abc import ABC, abstractmethod
+
+
+class Name(ABC):
+    def __init__(self, name):
+        self.name = name
+
+    @abstractmethod
+    def best_food(self):
+        pass
+
+
+class Obina(Name):
+    def best_food(self):
+        print(f"{self.name} likes Banku and Okro Stew")
+
+
+class Kato(Name):
+    def best_food(self):
+        print(f"{self.name} likes Apkle too much")
+
+
+class Ben(Name):
+    def best_food(self):
+        print(f"{self.name} likes Rice and stew")
+
+
+class Martin(Name):
+    def best_food(self):
+        print(f"{self.name} like Ampesi like no other")
+
+
+obina = Obina('Akwasi')
+kato = Kato('Simon')
+martin = Martin('Manu')
+ben = Ben('Kofi')
+names = [obina, kato, martin, ben]
+for name in names:
+    name.best_food()
+
+
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+
+    def perimeter(self):
+        pass
+
+
+class Rectangle(Shape):
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+    def area(self):
+        print(f"Area of a rectangle is {self.length} * {self.width}")
+
+    def perimeter(self):
+        print(
+            f"The perimeter of a rectangle is {2 * (self.length + self.width)}")
+
+
+class Triangle(Shape):
+    def __init__(self, base, height):
+        self.base = base
+        self.height = height
+
+    def area(self):
+        print(f"The area of a traingle is {0.5 * self.base * self.height}")
+
+    def perimeter(self):
+        print(f"The perimeter of a triangle is {3 * self.base}")
+
+
+rectangle = Rectangle(4, 5)
+triangle = Triangle(6, 8)
+shapes = [rectangle, triangle]
+for shape in shapes:
+    shape.area()
+    shape.perimeter()
